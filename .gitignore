@@ -1,0 +1,117 @@
+# =========================
+# Dependencies
+# =========================
+node_modules/
+**/node_modules/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# =========================
+# Next.js
+# =========================
+.next/
+out/
+
+# =========================
+# Build Outputs
+# =========================
+dist/
+build/
+coverage/
+.nyc_output/
+
+# =========================
+# TypeScript
+# =========================
+*.tsbuildinfo
+next-env.d.ts
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Package Managers
+# =========================
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# =========================
+# Vercel
+# =========================
+.vercel
+
+# =========================
+# IDEs & Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =========================
+# Operating System Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Temporary Files
+# =========================
+tmp/
+temp/
+.cache/
+
+# =========================
+# Database Files
+# =========================
+*.sqlite
+*.sqlite3
+
+# =========================
+# Uploads / Generated Files
+# =========================
+uploads/
+generated/
+
+# =========================
+# Secrets / Keys
+# =========================
+*.pem
+*.key
+*.crt
+
+# =========================
+# Claude / Cursor / AI Tools
+# =========================
+.claude/
+.cursor/
+.copilot/
+.continue/
+.codex/
+
+# =========================
+# Misc
+# =========================
+*.bak
+*.backup
