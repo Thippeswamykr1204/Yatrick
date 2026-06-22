@@ -1,6 +1,6 @@
 import { config } from '@/config/env.js';
 import { ExternalApiError } from '@/utils/errors.js';
-import logger from '@/utils/logger.js';
+import logger from '../utils/logger.js';
 import {
   AIGeneratedTrip,
   AIGenerateInput,
@@ -46,39 +46,43 @@ async function fetchWithRetry(
 
 // ==================== HOTEL SANITIZER ====================
 
-function sanitizeHotels(hotels: any[] = []) {
-  return hotels.map((hotel) => ({
-    name: hotel.name || 'Hotel',
-
-    tier:
+function sanitizeHotels(hotels: any[] = []): AIGeneratedTrip['hotels'] {
+  return hotels.map((hotel) => {
+    const tier: 'Budget' | 'Mid-Range' | 'Luxury' =
       hotel.tier === 'Luxury'
         ? 'Luxury'
         : hotel.tier === 'Mid-Range'
         ? 'Mid-Range'
-        : 'Budget',
+        : 'Budget';
 
-    estimatedCostPerNightUSD: Number(
-      hotel.estimatedCostPerNightUSD ??
-      hotel.costPerNight ??
-      hotel.pricePerNight ??
-      hotel.nightlyRate ??
-      1000
-    ),
+    return {
+      name: hotel.name || 'Hotel',
 
-    rating: Math.min(
-      5,
-      Math.max(
-        0,
-        Number(hotel.rating ?? 4)
-      )
-    ),
+      tier,
 
-    address: hotel.address || '',
+      estimatedCostPerNightUSD: Number(
+        hotel.estimatedCostPerNightUSD ??
+        hotel.costPerNight ??
+        hotel.pricePerNight ??
+        hotel.nightlyRate ??
+        1000
+      ),
 
-    amenities: Array.isArray(hotel.amenities)
-      ? hotel.amenities
-      : [],
-  }));
+      rating: Math.min(
+        5,
+        Math.max(
+          0,
+          Number(hotel.rating ?? 4)
+        )
+      ),
+
+      address: hotel.address || '',
+
+      amenities: Array.isArray(hotel.amenities)
+        ? hotel.amenities
+        : [],
+    };
+  });
 }
 
 // ==================== GEMINI CALLER ====================

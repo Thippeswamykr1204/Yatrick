@@ -1,4 +1,4 @@
-import { createApp } from '@/app.js';
+import { createApp } from './app.js';
 import { connectDatabase } from '@/config/database.js';
 import { config } from '@/config/env.js';
 import logger from '@/utils/logger.js';
