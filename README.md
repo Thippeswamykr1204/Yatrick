@@ -405,7 +405,7 @@ AI itinerary generation requires an active internet connection.
 ## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/yatrik.git
+git clone https://github.com/Thippeswamykr1204/yatrik.git
 
 cd yatrik
 ```
